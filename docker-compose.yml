@@ -1,0 +1,17 @@
+services:
+  flowops:
+    build:
+      context: .
+    ports:
+      - "${FLOWOPS_PORT:-5000}:5000"
+    volumes:
+      - ${FLOWOPS_SOURCE_DIR:-./flowops-src}:/workspace:ro
+      - flowops_lab_data:/data
+    environment:
+      FLOWOPS_SOURCE: /workspace
+      FLOWOPS_APP: /app
+      FLOWOPS_PORT: "5000"
+    restart: unless-stopped
+
+volumes:
+  flowops_lab_data:
