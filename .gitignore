@@ -1,4 +1,3 @@
-flowops-src/
 data/
 storage/
 *.sqlite3
@@ -9,3 +8,4 @@ storage/
 .DS_Store
 __pycache__/
 *.pyc
+*.log
