@@ -1,17 +1,14 @@
 services:
   flowops:
-    build:
-      context: .
+    image: ghcr.io/maurisaezr/flowops-community:latest
     ports:
       - "${FLOWOPS_PORT:-5000}:5000"
     volumes:
-      - ${FLOWOPS_SOURCE_DIR:-./flowops-src}:/workspace:ro
-      - flowops_lab_data:/data
+      - flowops_community_data:/data
     environment:
-      FLOWOPS_SOURCE: /workspace
-      FLOWOPS_APP: /app
+      FLOWOPS_APP: /opt/flowops
       FLOWOPS_PORT: "5000"
     restart: unless-stopped
 
 volumes:
-  flowops_lab_data:
+  flowops_community_data:
